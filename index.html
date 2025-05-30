@@ -1,0 +1,64 @@
+<html lang="en">
+    <head>
+        <title>Joiner</title>
+        <link rel="icon" href="/icon.ico" type="image/x-icon">
+    </head>
+    <script>
+        window.onload = function () {
+            const queryString = window.location.search
+            const urlParams = new URLSearchParams(queryString)
+
+            if (urlParams.get("usePlayer") == "true")
+            {
+                url = "roblox-player://experiences/start?"
+            }
+            else
+            {
+                url = "roblox://experiences/start?"
+            }
+
+            if (urlParams.get("placeId")) {
+                url = `${url}placeId=${urlParams.get("placeId")}`
+            }
+            else
+            {
+                console.log("WHERES PLACEID!!!")
+                return
+            }
+
+            if (urlParams.get("userId"))
+            {
+                url = `${url}&userId=${urlParams.get("userId")}`
+            }
+
+            if (urlParams.get("privateServerLinkCode"))
+            {
+                url = `${url}&linkCode=${urlParams.get("privateServerLinkCode")}`
+            }
+            else if (urlParams.get("linkCode"))
+            {
+                `${url}&linkCode=${urlParams.get("linkCode")}`
+            }
+
+            if (urlParams.get("accessCode"))
+            {
+                url = `${url}&accessCode=${urlParams.get("accessCode")}`
+            }
+
+            if (urlParams.get("gameInstanceId"))
+            {
+                url = `${url}&gameInstanceId=${urlParams.get("gameInstanceId")}`
+            }
+
+            if (urlParams.get("launchData"))
+            {
+                url = `${url}&launchData=${urlParams.get("url")}`
+            }
+
+            console.log(url)
+            window.location.replace(url)
+            window.close();
+        }
+    </script>
+</html>
+               
