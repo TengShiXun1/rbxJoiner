@@ -1,7 +1,7 @@
 <html lang="en">
     <head>
         <title>Joiner</title>
-        <link rel="icon" href="icon.ico" type="image/x-icon">
+        <link rel="icon" href="/icon.ico" type="image/x-icon">
     </head>
     <script>
         window.onload = function () {
@@ -20,15 +20,14 @@
             if (urlParams.get("placeId")) {
                 url = `${url}placeId=${urlParams.get("placeId")}`
             }
-            else
-            {
-                console.log("WHERES PLACEID!!!")
-                return
-            }
-
-            if (urlParams.get("userId"))
+            else if (urlParams.get("userId"))
             {
                 url = `${url}&userId=${urlParams.get("userId")}`
+            }
+            else
+            {
+                console.error("Argument Missing")
+                return
             }
 
             if (urlParams.get("privateServerLinkCode"))
